@@ -92,4 +92,61 @@ public class PlayerPrefManager : MonoBehaviour
             TextB.GetComponent<Text>().text = "Off";
         }
     }
+
+    public void saveFlags()
+    {
+        if (GlobalVariables.flagA == true)
+        {
+            GlobalVariables.flagA = false;
+            PlayerPrefs.SetInt("FlagA", 0);
+        }
+        else
+        {
+            GlobalVariables.flagA = true;
+            PlayerPrefs.SetInt("FlagA", 1);
+        }
+
+        if (GlobalVariables.flagB == true)
+        {
+            GlobalVariables.flagB = false;
+            PlayerPrefs.SetInt("FlagB", 0);
+        }
+        else
+        {
+            GlobalVariables.flagB = true;
+            PlayerPrefs.SetInt("FlagB", 1);
+        }
+    }
+
+    public void loadFlags()
+    {
+        int prefValue = PlayerPrefs.GetInt("FlagA");
+        bool flagValue = false ;
+        if (prefValue == 0)
+        {
+            flagValue = false;
+        }
+        else if (prefValue == 1)
+        {
+            flagValue = true;
+        }
+        GlobalVariables.flagA = flagValue;
+
+        prefValue = PlayerPrefs.GetInt("FlagB");
+        flagValue = false;
+        if (prefValue == 0)
+        {
+            flagValue = false;
+        }
+        else if (prefValue == 1)
+        {
+            flagValue = true;
+        }
+        GlobalVariables.flagB = flagValue;
+    }
+
+    public void clearFlags()
+    {
+        PlayerPrefs.DeleteAll();
+    }
 }
