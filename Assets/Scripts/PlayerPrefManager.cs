@@ -97,13 +97,11 @@ public class PlayerPrefManager : MonoBehaviour
     {
         if (GlobalVariables.flagA == true)
         {
-            GlobalVariables.flagA = false;
-            PlayerPrefs.SetInt("FlagA", 0);
+            PlayerPrefs.SetInt("FlagA", 1);
         }
         else
         {
-            GlobalVariables.flagA = true;
-            PlayerPrefs.SetInt("FlagA", 1);
+            PlayerPrefs.SetInt("FlagA", 0);
         }
 
         if (GlobalVariables.flagB == true)
